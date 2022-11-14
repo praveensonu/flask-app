@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="w3-twothird w3-padding" role="feed" title="Sezione dei risultati della ricerca" >
+	<h1 tabindex="1"><b><i class="fa fa-search" aria-hidden="true"></i> Risultati Ricerca</b></h1>
+	<span class="w3-red" style="width: 100%" aria-hidden="true">Inserire filtro e ordinamento risultati</span>
+    {% for hit in res %}
+	
+	<article aria-setsize="-1" class="w3-padding w3-card-4 w3-white" title="Sentenza Numero {{ hit["_source"]["Numero Sentenza"] }}">
+    <form action="/results/{{hit["_id"]}}" id="act" method="get" name="act" title="Anteprima sentenza">
+        
+		<h1 tabindex="1"><b>Sentenza Numero {{ hit["_source"]["Numero Sentenza"] }}</b></h1>
+		<span class=" w3-left"  style="margin-top:2px" tabindex="1" title="Giudice"><i>Giudice</i>: {{ hit["_source"]["Giudice"] }}</span>
+		<span class=" w3-right" style="margin-top:2px" tabindex="1" title="Data Pubblicazione"><i>Data Pubblicazione</i>: {{ hit["_source"]["Data Pubblicazione Sentenza"] }}</span><br aria-hidden="true"><br aria-hidden="true">
+		<span tabindex="1" role="document" title="Motivazione sentenza">{{ hit["Formatted"] }}</span><i class="w3-red" aria-hidden="true">[SNIPPET]</i><br aria-hidden="true"><br aria-hidden="true">
+		<button class="w3-button w3-blue" type="submit" style="margin-bottom:10px" tabindex="1"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Apri Sentenza</button>
+
+    </form></article>
+	<br aria-hidden="true">
+    {% endfor %}
+</section>
+
+<aside class="w3-third w3-right-align w3-padding" title="Form di ricerca">
+{% include "leftbar.html" %}
+</aside>
+
+<!-- Div vuoto per debuggare il footer -->
+<div class="w3-container" aria-hidden="true"></div>
+
+{% endblock %}

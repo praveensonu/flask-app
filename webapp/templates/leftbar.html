@@ -1,0 +1,23 @@
+<h1 tabindex="0"><b><i class="fa fa-search" aria-hidden="true"></i> Ricerca Sentenza</b></h1>
+
+<form action="{{ url_for('results')}}" class="w3-center" id="advanced" method="post" name="results" role="search" title="Form di ricerca sentenza">
+	<input type="search" style="width: 100%" name="cercatermine" id="cercatermine" placeholder="Ricerca semplice"><br aria-hidden="true">
+	<input type="search" style="width: 100%"  name="numerosentenza" id="numerosentenza" placeholder="Numero Sentenza"><br aria-hidden="true">
+	<input type="search" style="width: 100%"  name="rg" id="rg" placeholder="RG"><br aria-hidden="true">
+	<input type="search" style="width: 100%"  name="riferimenti" id="riferimenti" placeholder="Riferimenti Normativi"><br aria-hidden="true">
+	<input type="search" style="width: 100%"  name="precedenti" id="precedenti" placeholder="Precedenti"><br aria-hidden="true">
+	<input type="search" style="width: 100%"  name="parolechiave" id="parolechiave" placeholder="Parole Chiave"><br aria-hidden="true">
+	<input type="search" style="width: 100%"  name="giudice" id="giudice" placeholder="Giudice"><br aria-hidden="true">
+
+	<button type="submit" class="w3-button w3-blue" style="margin-top:5px"><i class="fa fa-search" aria-hidden="true"></i>  Cerca Sentenza</button>
+	<br aria-hidden="true"><br aria-hidden="true">
+	</form>
+ 
+<span class="w3-red" style="width: 100%" aria-hidden="true">1)inserire controlli/suggerimenti con notifica grafica/audio<br aria-hidden="true">
+2) inserire campi range data, categorie semplici ed oggetti<br aria-hidden="true">
+3) inserire campo per ricercare termine con scelta fra le massime o nell'intera sentenza<br aria-hidden="true">
+4) padding?</span>
+
+
+
+

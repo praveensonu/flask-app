@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h5><b>Ricerca Sentenza</b></h5>
+<form action="/results" id="advanced" method="post" name="results">
+
+    <div class="parent d-flex">
+        <div class="child row align-items-center" style="float: left;"> 
+            <div style="text-align: left; margin-right: 5px;"><label for="numero-sentenza-box">{{ options_dict["ns"] }}:</label></div>
+            <div style="text-align: left; margin-right: 5px; margin-top: 2%;"><label for="data-box">{{ options_dict["d"] }}:</label></div>
+            <div style="text-align: left; margin-right: 5px; margin-top: 2%;"><label for="registro-generale-box">{{ options_dict["rg"] }}:</label></div>
+            <div style="text-align: left; margin-right: 5px; margin-top: 2%;"><label for="categorie-semplici-box">{{ options_dict["c"] }}:</label></div>
+            <div style="text-align: left; margin-right: 5px; margin-top: 2%;"><label for="oggetti-box">{{ options_dict["o"] }}:</label></div>
+            <div style="text-align: left; margin-right: 5px; margin-top: 2%;"><label for="riferimenti-normativi-box">{{ options_dict["rn"] }}:</label></div>
+            <div style="text-align: left; margin-right: 5px; margin-top: 2%;"><label for="precedenti-box">{{ options_dict["p"] }}:</label></div>
+            <div style="text-align: left; margin-right: 5px; margin-top: 2%;"><label for="keywords-box">{{ options_dict["keywords"] }}:</label></div>
+        </div>
+        <div class="child row align-items-center" style="float: left;"> 
+            <div><input id="numero-sentenza-input" name="numero-sentenza-box" class="form-control mr-sm-2" type="text" placeholder="{{ options_dict["ns"] }}" aria-label="Search" /></div>
+            <!-- <div style="margin-top: 2%;"><input id="data-input" name="data-box" class="form-control mr-sm-2" type="text" placeholder="{{ options_dict["d"] }}" aria-label="Search" /></div> -->
+            <div class="d-flex align-items-center" style="margin-top: 3%; width: 100%;"><input type="date" name="data-box" placeholder="dd-mm-yyyy" value=""></div>
+            <!-- <div class="column d-flex align-items-center" style="margin-top: 2%;">
+                <div style="float: inline-end; width: 50%;">           
+                    <input class="form-control start_date mr-sm-2" type="text" placeholder="Data" id="datepicker">
+                </div>
+                <div style="width: 50%; display: flex; justify-content: left; align-items: left; margin-left: 5%;" id="calendar1">
+                    <i class="fa fa-calendar"></i>
+                </div>
+            </div> -->
+            <div style="margin-top: 2%;"><input id="registro-generale-input" name="registro-generale-box" class="form-control mr-sm-2" type="text" placeholder="{{ options_dict["rg"] }}" aria-label="Search" /></div>
+            <div style="margin-top: 2%;"><input id="categorie-semplici-input" name="categorie-semplici-box" class="form-control mr-sm-2" type="text" placeholder="{{ options_dict["c"] }}" aria-label="Search" /></div>
+            <div style="margin-top: 2%;"><input id="oggetti-input" name="oggetti-box" class="form-control mr-sm-2" type="text" placeholder="{{ options_dict["o"] }}" aria-label="Search" /></div>
+            <div class="column d-flex align-items-center" style="margin-top: 2%;">
+                <div style="float: inline-end; width: 50%;"><input id="riferimenti-normativi-input" name="riferimenti-normativi-box" class="form-control mr-sm-2" type="text" placeholder="{{ options_dict["rn"] }}" aria-label="Search" /></div>
+                <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+                    <select name="riferimenti-normativi-choice" id="riferimenti-normativi-choice-id">
+                        <option value="C.C.">C.C.</option>
+                        <option value="C.P.C.">C.P.C.</option>
+                        <option value="C.P.">C.P.</option>
+                        <option value="C.P.P.">C.P.P.</option>
+                    </select>
+                </div>
+            </div>
+            <div style="margin-top: 2%;"><input id="precedenti-input" name="precedenti-box" class="form-control mr-sm-2" type="text" placeholder="{{ options_dict["p"] }}" aria-label="Search" /></div>
+            <div style="margin-top: 2%;"><input id="keywords-input" name="keywords-box" class="form-control mr-sm-2" type="text" placeholder="{{ options_dict["keywords"] }}" aria-label="Search" /></div>
+        </div>
+    </div>
+
+        <button type="submit" class="w3-button w3-blue">[icona] Cerca Sentenza</button>
+
+    <!-- <div class="d-flex row h-100"> 
+        <div class="input-group d-flex column">
+            <div class="parent align-items-center d-flex">
+                <div class="child" style="float: left;"><input id="numero-sentenza-input" name="numero-sentenza-box" class="form-control mr-sm-2" type="text" placeholder={{ options_dict["ns"] }} aria-label="Search" /></div>
+                <div class="child" style="float: left;"><input id="numero-sentenza-input" name="numero-sentenza-box" class="form-control mr-sm-2" type="text" placeholder={{ options_dict["d"] }} aria-label="Search" /></div>
+            </div>
+        </div>
+    </div> -->
+    <!-- <p>
+        TODO: Aggiungere tutti i campi restanti
+    </p> -->
+    <!-- <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-bar ui-bar-a" style="height:50px">
+                <p>Column 1</p>
+            </div>
+        </div>
+          
+        <div class="ui-block-b">
+            <div class="ui-bar ui-bar-b" style="height:50px">
+                <p>Column 2</p>
+            </div>
+        </div>
+    </div> -->
+</form>
+
+
+{% endblock %}

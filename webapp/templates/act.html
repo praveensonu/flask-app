@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- sentenza -->  
+<section class="w3-twothird w3-padding" title="Sezione introduttiva della Sentenza">
+	<h1 tabindex="1"><b><i class="fa fa-legal" aria-hidden="true"></i> Sentenza numero {{ hit["_source"]["Numero Sentenza"] }} pubblicata il {{ hit["_source"]["Data Pubblicazione Sentenza"] }}</b></h1>
+		<div class="w3-card-4 w3-white w3-padding" role="document" title="Motivazione della sentenza" tabindex="1">
+			<b>Motivazione:</b> {{ hit["_source"]["Motivazione"] }}
+			<br aria-hidden="true">
+			<br aria-hidden="true">
+			<span class="w3-red" aria-hidden="true">Capire come gestire l'ordine dei tab, data la presenza della sidebar </span>
+		</div>	
+</section>
+
+
+
+<!-- leftbar -->  
+<aside class="w3-third w3-right-align w3-padding" title="Form di ricerca">
+{% include "leftbar.html" %}
+</aside>
+<!-- leftbar -->  
+
+<div class="w3-bar w3-blutribu" role="tablist" title="Tablist - Dettagli della Sentenza">
+  <button accesskey="1" class="w3-bar-item w3-btnX tablink w3-blue" onclick="openTab(event,'panel-1')" role="tab" aria-controls="panel-1" id="tab-1">Informazioni Sentenza</button>
+  <button class="w3-bar-item w3-btnX tablink" onclick="openTab(event,'panel-2')" role="tab" aria-controls="panel-2" id="tab-2">Leggi</button>
+  <button accesskey="2" class="w3-bar-item w3-btnX tablink" onclick="openTab(event,'panel-3')" role="tab" aria-controls="panel-3" id="tab-3">Ascolta</button>
+  <button accesskey="3" class="w3-bar-item w3-btnX tablink" onclick="openTab(event,'panel-4')" role="tab" aria-controls="panel-4" id="tab-4">Download</button>
+  <button accesskey="4" class="w3-bar-item w3-btnX tablink" onclick="openTab(event,'panel-5')" role="tab" aria-controls="panel-5" id="tab-5">Sentenze Simili</button>
+</div>
+
+<div class="w3-container tab" id="panel-1" role="tabpanel"  aria-labelledby="tab-1">
+	<section class="w3-panel w3-row-padding" title="Panel Tab Informazioni Sentenza">
+		
+		<h1 tabindex="0"><i class="fa fa-info-circle" aria-hidden="true"></i><b> Informazioni Sentenza</b><span class="w3-red" aria-hidden="true">togliere Formatted ed ID</span></h1>
+		<span tabindex="0" role="document" title="Dettagli della sentenza">{% for key,val in hit["_source"].items() %}
+		{% if ( ( key != "Testo sentenza" and key != "Motivazione" and key != "Path file") ) %}
+		{% if val != "" %}
+		<p class="info-{{val}}" title="{{ key.strip()}}"><strong>{{ key.strip()}}</strong>: {{ val }}</p>
+		{% endif %}
+		{% endif %}
+		{% endfor %}</span>
+		
+	</section>
+</div>
+
+<div class="w3-container tab" style="display:none" id="panel-2" role="tabpanel" aria-labelledby="tab-2">
+	<section class="w3-panel w3-row-padding" title="Panel Tab Leggi Sentenza">
+
+        <h1 tabindex="0"><i class="fa fa-eye" aria-hidden="true"></i><b> Leggi Sentenza <span class="w3-red" aria-hidden="true">FORMATTARE</span></b></h1>
+        <span tabindex="0" role="document" title="Testo Sentenza">{{ hit["_source"]["Testo sentenza"] }}</span>
+	</section>
+</div>
+
+
+<div class="w3-container tab" style="display:none" id="panel-3" role="tabpanel" aria-labelledby="tab-3">
+    <section class="w3-panel w3-row-padding" title="Panel Tab Ascolta Sentenza">
+        <h1 tabindex="0"><i class="fa fa-assistive-listening-systems" aria-hidden="true"></i><b> Ascolta Sentenza</b></h1>
+		
+        <audio tabindex="0" id="audio1" data-able-player preload="auto">
+		<source type="audio/mpeg" src="{{ url_for('static',filename='audio/memories.mp3') }}"/>
+		</audio>
+
+    </section>
+</div>
+
+<div class="w3-container tab" style="display:none" id="panel-4" role="tabpanel" aria-labelledby="tab-4">  
+    <section class="w3-panel row-padding" title="Panel Tab Download Sentenza">
+	
+        <h1><i class="fa fa-download" aria-hidden="true"></i><b> Download Sentenza</b></h1>
+        <p align="center" title="Pulsanti di Download Sentenza">
+            <a href="{{ url_for('download', filename=hit["_source"]['Path file']) }}" target="_blank"><button class="w3-button w3-blue" style="margin: 1em" type="submit"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</button></a>
+            <button class="w3-button w3-blue" style="margin: 1em" type="submit"><i class="fa fa-file-sound-o" aria-hidden="true"></i> MP3</button>
+            <button class="w3-button w3-blue" style="margin: 1em" type="submit"><i class="fa fa-file-epub" aria-hidden="true"></i> ePub</button>
+        </p>
+		
+    </section>
+</div>  
+
+<div class="w3-container tab" style="display:none" id="panel-5" tabindex="0" aria-labelledby="tab-5">
+<section class="w3-panel w3-row-padding" title="Panel Tab Sentenze Simili">
+
+        <h1 tabindex="0"><i class="fa fa-exchange" aria-hidden="true"></i><b> Sentenze Simili</b></h1>
+        <span class="w3-red">da definire</span>
+
+  </section>
+</div>
+
+<script type="text/javascript">
+    function myFunc() {
+        var x = document.getElementById("testo-sentenza")
+        if (x.style.display == "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>				
+
+
+{% endblock %}

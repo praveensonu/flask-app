@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- GUIDA --> 
+<!-- sezione info --> 
+<section class="w3-container w3-padding" title="Sezione info Guida all'Utilizzo della Banca Dati">
+    <h1 tabindex="0"><b><i class="fa fa-book" aria-hidden="true"></i> Guida all'Utilizzo della Banca Dati</b></h1>
+    <div class="w3-padding w3-card-4 w3-white" tabindex="0" title="Presentazione Guida all'Utilizzo della Banca Dati">
+     Guida all'utilizzo del sito blablabla<br aria-hidden="true">per ulteriori info contattare blablabla<br aria-hidden="true"><br aria-hidden="true">inserire versione stampabile della guida PDF<br aria-hidden="true">
+	 la guida è divisa in 3 capitoli ed è possibile scaricarla <br aria-hidden="true">
+	  <span class="w3-red" style="width: 100%" aria-hidden="true">La guida verosimilmente verrà scritta a sito pronto. Per l'accessibilità si prevedere di fare versioni PDF/audio/epub della guida</span><br aria-hidden="true">
+	 <br aria-hidden="true">
+    </div>
+</section>
+<hr aria-hidden="true">
+<!-- sezione info -->   
+
+<div class="w3-bar w3-blutribu" role="tablist" title="Tablist - Indice della Guida">
+  <button role="tab" aria-controls="panel-1" id="tab-1" class="w3-bar-item w3-btnX tablink w3-blue" onclick="openTab(event,'panel-1')" >Ricerca</button>
+  <button role="tab" aria-controls="panel-2" id="tab-2" class="w3-bar-item w3-btnX tablink" onclick="openTab(event,'panel-2')">Caricamento</button>
+  <button role="tab" aria-controls="panel-3" id="tab-3" class="w3-bar-item w3-btnX tablink" onclick="openTab(event,'panel-3')" >Modifica</button>
+  <button role="tab" aria-controls="panel-4" id="tab-4" class="w3-bar-item w3-btnX tablink" onclick="openTab(event,'panel-4')">Ascolta Guida</button>
+  <button role="tab" aria-controls="panel-5" id="tab-5" class="w3-bar-item w3-btnX tablink" onclick="openTab(event,'panel-5')">Download Guida</button>
+</div>
+
+<div id="panel-1" role="tabpanel" aria-labelledby="tab-1" class="w3-container tab">
+<section class="w3-panel w3-row-padding" title="Panel Tab Ricerca">
+	<!--     <div class="row-padding" style="margin:0 -16px"> -->
+      <!-- <div class="w3-twothird"> -->
+        <h1 aria-label="Ricerca Sentenza" tabindex="0"><i class="fa fa-search" aria-hidden="true"></i><b> Come ricercare le sentenze</b></h1>
+        <span role="document" tabindex="0" title="Guida alla ricerca delle sentenze">testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo </span>
+      <!--  </div> -->
+      <!-- <div class="w3-third"> 
+        <p>spazio screenshoot<br aria-hidden="true">spazio screenshoot<br aria-hidden="true">spazio screenshoot<br aria-hidden="true">spazio screenshoot<br aria-hidden="true"></p>
+       </div> 
+	</div>-->   
+</section>
+</div>
+
+<div id="panel-2" role="tabpanel"  aria-labelledby="tab-2" class="w3-container tab" style="display:none">
+<section class="w3-panel w3-row-padding" title="Panel Tab Caricamento">
+        <h1 tabindex="0"><i class="fa fa-upload" aria-hidden="true" ></i><b> Come caricare le sentenze</b></h1>
+        <span role="document" tabindex="0" title="Guida al caricamento delle sentenze" >testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo </span>
+</section>
+</div>
+
+<div id="panel-3" role="tabpanel"  aria-labelledby="tab-3" class="w3-container tab" style="display:none">  
+<section class="w3-panel w3-row-padding" title="Panel Tab Modifica">
+        <h1 aria-label="Modifica Sentenza" tabindex="0"><i class="fa fa-edit" aria-hidden="true"></i><b> Come modificare le sentenze caricate</b></h1>
+        <span role="document" tabindex="0" title="Guida alla modifica delle sentenze caricate">testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo </span> 
+</section>
+</div>
+
+<div id="panel-4" role="tabpanel"  aria-labelledby="tab-4" class="w3-container tab" style="display:none">
+<section class="w3-panel w3-row-padding" title="Panel Tab Ascolta Guida">
+	<h1 aria-label="Ascolta Guida" tabindex="0"><i class="fa fa-assistive-listening-systems" aria-hidden="true"></i><b> Ascolta Guida</b></h1>
+	
+	<audio tabindex="0" id="audio1" data-able-player preload="auto"><source type="audio/mpeg" src="{{ url_for('static',filename='audio/memories.mp3') }}"/></audio>
+	
+</section>
+</div>
+
+<div id="panel-5" role="tabpanel"  aria-labelledby="tab-5" class="w3-container tab" style="display:none">  
+<section class="w3-panel w3-row-padding" title="Panel Tab Download Guida">
+	<h1><i class="fa fa-download" aria-hidden="true"></i><b> Download Guida</b></h1>
+	<p align="center" title="Pulsanti di Download Guida"><button class="w3-button w3-blue" style="margin: 1em" type="submit"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</button><button class="w3-button w3-blue" style="margin: 1em" type="submit"><i class="fa fa-file-sound-o" aria-hidden="true"></i> MP3</button><button class="w3-button w3-blue" style="margin: 1em" type="submit"><i class="fa fa-file-epub" aria-hidden="true"></i> ePub</button></p>
+</section>
+</div> 
+<!-- GUIDA -->
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %} 	
+
+<!-- sezione info --> 
+<section class="w3-container w3-padding" title="Sezione info banca dati">
+	<h1 tabindex="1"><b><i class="fa fa-balance-scale" aria-hidden="true"></i> Tribunale di Pisa - Banca Dati Sezionale</b></h1>
+    <div class="w3-padding w3-card-4 w3-white focuscolor" tabindex="1" title="Presentazione banca dati">
+     testo introduttivo sulla banca dati<br aria-hidden="true"><br aria-hidden="true">
+	 <a accesskey="g" href="/guida">Leggi di più</a>
+    </div>
+</section>
+<!-- sezione info -->   
+
+
+
+<!-- barra ricerca -->
+<section class="w3-container w3-padding-16 w3-center" title="Sezione ricerca rapida">
+  <h2 tabindex="0"><b><i class="fa fa-search fa-fw" aria-hidden="true"></i>  Ricerca Rapida</b></h2>
+	<form action="/results" method="post" form="search" title="Form di ricerca rapida">
+	<input accesskey="z" type="search" id="search-input" name="Barra di Ricerca" style="width: 52%; text-align: center" role="textbox" aria-label="Scrivi qui il termine da ricercare e premi invio, o il pulsante Ricerca Rapida, per effettuare una ricerca rapida" placeholder="Scrivi qui il termine o espressione da ricercare"><button accesskey="x" id="search-button" type="submit" class="w3-button w3-blue" style="margin-bottom:2px; margin-left:15px" aria-label="Per effettuare una ricerca rapida, scrivi il termine da ricercare nella barra di ricerca e premi questo pulsante" ><i class="fa fa-search" aria-hidden="true"></i>  Ricerca Rapida</button><button accesskey="v" type="button" onclick="SpeechRecog()" class="w3-button w3-blue" style="margin-bottom:2px; margin-left:15px" aria-label="Premi questo pulsante per inserire il termine da ricercare nella barra di ricerca tramite comando vocale, e premi poi il pulsante Ricerca Rapida per effettuare la ricerca"><i class="fa fa-microphone" aria-hidden="true"></i>   Ricerca Vocale</button><br aria-hidden="true">
+	<label for="input-search">Per effettuare una ricerca rapida, scrivi il termine da ricercare nella barra di ricerca e premi invio o il pulsante "Ricerca Rapida".<br aria-hidden="true">In alternativa, premi il pulsante "Ricerca Vocale" per inserire il termine tramite comando vocale, e premi il pulsante "Ricerca Rapida" per effettuare la ricerca.</label><br aria-hidden="true"></form>
+	<br aria-hidden="true">
+	
+	<span class="w3-red" aria-hidden="true">1- inserire un animazione per il label/placedolfer<br>2- metterlo nell'header?<br>
+	3 - concatenare ricerca vocale e submit (da fare quando la ricerca vocale è definitiva)<br>
+	4 - capire se i label audio sono ridondanti<br>
+	5 - capire se mettere bottoni ricerca avanzata e vocale sotto il form</span></section>
+	<!--placeholder="Scrivi il termine o espressione e premi invio per effettuare una ricerca rapida"-->
+	<!--<form action="/advanced-search" method="get"> 
+    <button class="w3-button w3-blue" type="submit" style="margin-top:10px"><i class="fa fa-sliders"></i>  Ricerca Avanzata</button>
+	</form> -->
+<!-- barra ricerca -->
+<hr aria-hidden="true">
+<hr aria-hidden="true">
+
+<!-- statistiche varie -->
+<!-- capire come gestire i label dopo che si è capito come estrarre le statistiche e quali -->
+<section class="w3-row-padding w3-margin-bottom" title="Sezione statistiche principali">
+
+<h2 tabindex="0" style="w3-padding-left:0.7em"><b><i class="fa fa-bar-chart" aria-hidden="true"></i> Statistiche della banca dati</b></h2>
+
+	<div class="w3-quarter" title="Sezione statistica 1">
+      <div class="w3-container w3-blue w3-padding-16" style="border-radius: 10px" title="Statistica 1">
+        <div class="w3-left"  aria-hidden="true"><i class="fa fa-area-chart w3-xxlarge"></i></div>
+        <div class="w3-right"  aria-hidden="true">
+          <h4>252</h4>
+        </div>
+        <div class="w3-clear"  aria-hidden="true"></div>
+        <h3 aria-label="placeholder statistica valore 1" tabindex="0">Statistica 1</h5>
+      </div>
+    </div>
+	
+    <div class="w3-quarter" title="Sezione statistica 2">
+      <div class="w3-container w3-blue w3-padding-16" style="border-radius: 10px" title="Statistica 2">
+        <div class="w3-left" aria-hidden="true"><i class="fa fa-tasks w3-xxlarge"></i></div>
+        <div class="w3-right" aria-hidden="true">
+          <h4 >199</h4>
+        </div>
+        <div class="w3-clear" aria-hidden="true"></div>
+        <h3 aria-label="placeholder statistica valore 2" tabindex="0">Statistica 2</h3>
+      </div>
+    </div>
+	
+    <div class="w3-quarter" title="Sezione statistica 3">
+      <div class="w3-container w3-blue w3-padding-16" style="border-radius: 10px" title="Statistica 3">
+        <div class="w3-left" aria-hidden="true"><i class="fa fa-signal w3-xxlarge"></i></div>
+        <div class="w3-right" aria-hidden="true">
+          <h4>323</h4>
+        </div>
+        <div class="w3-clear" aria-hidden="true"></div>
+        <h3 aria-label="placeholder statistica valore 3" tabindex="0">Statistica 3</h3>
+      </div>
+    </div>
+	
+    <div class="w3-quarter" title="Sezione statistica 4">
+      <div class="w3-container w3-blue w3-padding-16" style="border-radius: 10px" title="Statistica 4">
+        <div class="w3-left" aria-hidden="true"><i class="fa fa-pie-chart w3-xxlarge"></i></div>
+        <div class="w3-right" aria-hidden="true">
+          <h4>150</h4>
+        </div>
+        <div class="w3-clear" aria-hidden="true"></div>
+        <h3 aria-label="placeholder statistica valore 4" tabindex="0">Statistica 4</h3>
+      </div>
+    </div>
+</section>
+<!-- statistiche varie -->  
+
+<hr aria-hidden="true">
+
+{% endblock %}
